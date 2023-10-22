@@ -24,7 +24,7 @@ jobs:
           distribution: adopt
           cache: maven
       - name: Step 3 - Build with Maven Wrapper
-        run: ./mvnw -B package --pom.xml
+        run: ./mvnw -B package
       - name: Step 4 - List the currect directory
         run: ls -a
       - name: Step 5 - cd to target folder and list
