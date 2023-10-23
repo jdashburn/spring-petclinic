@@ -23,7 +23,7 @@ jobs:
         env:
           IMAGE_NAME: ashburn.jfrog.io/docker/jfrog-docker-example-image:${{ github.run_number }}
         run: |
-          jf docker build -t $IMAGE_NAME .devcontainer/Dockerfile
+          jf docker build -t $IMAGE_NAME .devcontainer
           jf docker push $IMAGE_NAME
           
       - name: Publish Build info With JFrog CLI
