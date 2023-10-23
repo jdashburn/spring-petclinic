@@ -22,8 +22,9 @@ jobs:
       - name: Build Tag and push Docker Image
         env:
           IMAGE_NAME: ashburn.jfrog.io/docker/jfrog-docker-example-image:${{ github.run_number }}
+        working-directory: .devcontainer
         run: |
-          jf docker build -t $IMAGE_NAME .
+          jf docker build . --file Dockerfile -t $IMAGE_NAME .
           jf docker push $IMAGE_NAME
           
       - name: Publish Build info With JFrog CLI
