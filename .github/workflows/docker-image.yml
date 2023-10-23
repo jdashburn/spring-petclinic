@@ -1,0 +1,21 @@
+name: Docker Image Build
+
+on:
+  push:
+    branches: none # [ "main" ]
+  pull_request:
+    branches: none # [ "main" ]
+  # Allows running workflow manually from Actions tab
+  workflow_dispatch:
+  
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build the Docker image
+      working-directory: .devcontainer
+      run: docker build . --file Dockerfile --tag james-petclinc:$(date +%s)
