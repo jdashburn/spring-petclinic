@@ -1,4 +1,4 @@
-name: Build and Tag Docker Image
+name: JFrog Artifactory Build and Tag Docker Image
 
 on:
   #push:
@@ -21,7 +21,7 @@ jobs:
 
       - name: Build Tag and push Docker Image
         env:
-          IMAGE_NAME: ashburn.jfrog.io/docker/jfrog-docker-example-image:${{ github.run_number }}
+          IMAGE_NAME: ashburn.jfrog.io/docker/spring-petclinic:${{ github.run_number }}
         run: |
           jf docker build -t $IMAGE_NAME .devcontainer
           jf docker push $IMAGE_NAME
