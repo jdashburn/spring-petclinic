@@ -1,0 +1,38 @@
+[
+   {
+      "component": "test-npmlink",
+      "version_in_use": "0.0.1",
+      "risk": "High",
+      "risk_reason": "Health",
+      "is_eol": null,
+      "released": "2021-02-12T14:05:19Z",
+      "latest_version": "0.0.1",
+      "cadence": 0,
+      "committers": null,
+      "commits": null
+   },
+   {
+      "component": "v8-compile-cache",
+      "version_in_use": "2.0.0",
+      "risk": "High",
+      "risk_reason": "Health",
+      "is_eol": null,
+      "released": "2018-04-30T18:16:11Z",
+      "latest_version": "2.3.0",
+      "cadence": 0,
+      "committers": null,
+      "commits": null
+   },
+   {
+      "component": "yarn",
+      "version_in_use": "1.22.19",
+      "risk": "High",
+      "risk_reason": "Health",
+      "is_eol": null,
+      "released": "2022-06-08T00:52:26Z",
+      "latest_version": "2.4.3",
+      "cadence": 1,
+      "committers": null,
+      "commits": null
+   }
+]

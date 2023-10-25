@@ -1,0 +1,421 @@
+[
+   {
+      "user_issue_id": "1716807165582938112",
+      "comp_id": "docker://spring-petclinic:5",
+      "component_package_type": "docker",
+      "comp_name": "spring-petclinic",
+      "comp_version": "5",
+      "type": "security",
+      "targets": null,
+      "issue_id": "XRAY-526162",
+      "paths": [
+         "default/docker-local/spring-petclinic/5/manifest.json"
+      ],
+      "watcher_id": "4ff1c743f3252308395c95db",
+      "watcher_name": "Security_watch_1",
+      "matched_policies": [
+         {
+            "policy": "Security_policy_1",
+            "rule": "Critical_CVEs",
+            "is_blocking": false,
+            "blocking_mask": 0
+         }
+      ],
+      "summary": "The PKCS#11 feature in ssh-agent in OpenSSH before 9.3p2 has an insufficiently trustworthy search path, leading to remote code execution if an agent is forwarded to an attacker-controlled system. (Code in /usr/lib is not necessarily safe for loading into ssh-agent.) NOTE: this issue exists because of an incomplete fix for CVE-2016-10009.",
+      "severity": "Critical",
+      "updated": "2023-10-24T13:21:39Z",
+      "permissions": {},
+      "is_source_root": false,
+      "is_high_profile": true,
+      "high_profile_info": {
+         "Id": 0,
+         "PublicVulnsTblID": 0,
+         "VulnId": "XRAY-526162",
+         "VulnerabilityTitle": "",
+         "ShortDescription": "A design problem in OpenSSH client may lead to remote code execution when using agent forwarding and connecting to a malicious SSH server.",
+         "FullDescription": "",
+         "Impact": 6,
+         "VulnerabilityType": "Remote code execution",
+         "Resolution": "##### Deployment mitigations\n\nA possible mitigation for this issue, proposed by the OpenSSH's developers, is forwarding an agent while having an empty allowlist (`ssh-agent -P ''`), or by setting up an allowlist that includes only designated provider libraries.",
+         "ExtendedImpactReasons": [
+            {
+               "Id": 0,
+               "PublicVulnsExtendedTblId": 0,
+               "Name": "The issue results in a severe impact (such as remote code execution)",
+               "Description": "Remote Code Execution",
+               "IsPositive": 0,
+               "InsertOrder": 4
+            },
+            {
+               "Id": 0,
+               "PublicVulnsExtendedTblId": 0,
+               "Name": "The issue has multiple mentions in general media",
+               "Description": "OpenSSH is a well-known SSH server.",
+               "IsPositive": 0,
+               "InsertOrder": 2
+            },
+            {
+               "Id": 0,
+               "PublicVulnsExtendedTblId": 0,
+               "Name": "The issue has an exploit published",
+               "Description": "Qualys has published a Proof-of-Concept that demonstrates remote code execution with a technical writeup.",
+               "IsPositive": 0,
+               "InsertOrder": 3
+            },
+            {
+               "Id": 0,
+               "PublicVulnsExtendedTblId": 0,
+               "Name": "Exploitation of the issue is only possible when the vulnerable component is used in a specific manner. The attacker has to perform per-target research to determine the vulnerable attack vector",
+               "Description": "A machine running OpenSSH client is only exploitable when using agent forwarding (`ssh -A`) and connecting to an attacker-controlled SSH server.\nMoreover, the presence of specific libraries on the victim system is necessary for exploitation to occur.\n\nThe current exploit PoC relies on all of the following non-default packages being installed on Ubuntu 22.04: `eclipse-titan`, `libkf5sonnetui5` and `libns3-3v5`.\nHowever - future exploits might be able to achieve RCE even in a default configuration of Ubuntu or other distros.",
+               "IsPositive": 1,
+               "InsertOrder": 1
+            }
+         ],
+         "ExtendedReferences": [
+            {
+               "Id": 0,
+               "PublicVulnsExtendedTblId": 0,
+               "RefType": "Advisory",
+               "Title": "Official OpenSSH Advisory",
+               "Url": "https://www.openssh.com/txt/release-9.3p2",
+               "InsertOrder": 4
+            },
+            {
+               "Id": 0,
+               "PublicVulnsExtendedTblId": 0,
+               "RefType": "Advisory",
+               "Title": "JFrog Security Tweet",
+               "Url": "https://twitter.com/JFrogSecurity/status/1681925520999448576",
+               "InsertOrder": 1
+            },
+            {
+               "Id": 0,
+               "PublicVulnsExtendedTblId": 0,
+               "RefType": "Exploit",
+               "Title": "Qualys Write-Up including a Proof-of-concept",
+               "Url": "https://www.qualys.com/2023/07/19/cve-2023-38408/rce-openssh-forwarded-ssh-agent.txt",
+               "InsertOrder": 2
+            },
+            {
+               "Id": 0,
+               "PublicVulnsExtendedTblId": 0,
+               "RefType": "Patch",
+               "Title": "Official Fix Commit",
+               "Url": "https://github.com/openssh/openssh-portable/commit/1f2731f5d7a8f8a8385c6031667ed29072c0d92a",
+               "InsertOrder": 3
+            }
+         ],
+         "ExtendedRelatedVulns": null
+      },
+      "is_exposures_issue": false,
+      "source": "debian:bullseye:openssh-client",
+      "source_version": "1:8.4p1-5+deb11u1",
+      "source_id": "deb://debian:bullseye:openssh-client",
+      "component_physical_paths": [
+         ""
+      ]
+   },
+   {
+      "user_issue_id": "1716807165540995072",
+      "comp_id": "docker://spring-petclinic:5",
+      "component_package_type": "docker",
+      "comp_name": "spring-petclinic",
+      "comp_version": "5",
+      "type": "security",
+      "targets": null,
+      "issue_id": "XRAY-150287",
+      "paths": [
+         "default/docker-local/spring-petclinic/5/manifest.json"
+      ],
+      "watcher_id": "4ff1c743f3252308395c95db",
+      "watcher_name": "Security_watch_1",
+      "matched_policies": [
+         {
+            "policy": "Security_policy_1",
+            "rule": "Critical_CVEs",
+            "is_blocking": false,
+            "blocking_mask": 0
+         }
+      ],
+      "summary": "Python asyncio.loop.create_datagram_endpoint() Function reuse_address Parameter Unspecified Issue",
+      "severity": "Critical",
+      "updated": "2023-10-24T13:21:39Z",
+      "permissions": {},
+      "is_source_root": false,
+      "is_high_profile": false,
+      "is_exposures_issue": false,
+      "source": "python:python",
+      "source_version": "3.8.12",
+      "source_id": "cpp://python:python",
+      "component_physical_paths": [
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_codecs_kr.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_multibytecodec.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_testinternalcapi.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/resource.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_xxsubinterpreters.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_codecs_tw.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_contextvars.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_crypt.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_curses_panel.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_dbm.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_queue.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_testimportmultiple.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/termios.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/xxlimited.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_codecs_hk.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_curses.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_multiprocessing.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_testbuffer.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/mmap.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/nis.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/parser.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_asyncio.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_lsprof.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/audioop.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_codecs_cn.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_codecs_iso2022.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_posixshmem.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_sqlite3.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_uuid.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_zoneinfo.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_ctypes.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_ctypes_test.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_decimal.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/readline.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_json.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_lzma.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_xxtestfuzz.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_codecs_jp.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_hashlib.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_testcapi.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_testmultiphase.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/ossaudiodev.cpython-39-x86_64-linux-gnu.so"
+      ]
+   },
+   {
+      "user_issue_id": "1716807165499052032",
+      "comp_id": "docker://spring-petclinic:5",
+      "component_package_type": "docker",
+      "comp_name": "spring-petclinic",
+      "comp_version": "5",
+      "type": "security",
+      "targets": null,
+      "issue_id": "XRAY-150286",
+      "paths": [
+         "default/docker-local/spring-petclinic/5/manifest.json"
+      ],
+      "watcher_id": "4ff1c743f3252308395c95db",
+      "watcher_name": "Security_watch_1",
+      "matched_policies": [
+         {
+            "policy": "Security_policy_1",
+            "rule": "Critical_CVEs",
+            "is_blocking": false,
+            "blocking_mask": 0
+         }
+      ],
+      "summary": "Python UU Encoding Methods Filename Newline Character Handling Buffer Overflow",
+      "severity": "Critical",
+      "updated": "2023-10-24T13:21:39Z",
+      "permissions": {},
+      "is_source_root": false,
+      "is_high_profile": false,
+      "is_exposures_issue": false,
+      "source": "python:python",
+      "source_version": "3.8.12",
+      "source_id": "cpp://python:python",
+      "component_physical_paths": [
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_dbm.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_lsprof.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_testinternalcapi.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/parser.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_asyncio.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_codecs_hk.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_decimal.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_xxtestfuzz.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/audioop.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/resource.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_codecs_tw.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_testmultiphase.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/xxlimited.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/ossaudiodev.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_codecs_jp.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_json.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_multibytecodec.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_testcapi.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_testimportmultiple.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_zoneinfo.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_posixshmem.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_queue.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_codecs_iso2022.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_crypt.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_ctypes.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_ctypes_test.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_curses_panel.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_multiprocessing.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_codecs_cn.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_sqlite3.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_testbuffer.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_uuid.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/readline.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/termios.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_codecs_kr.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_contextvars.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_curses.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_hashlib.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/mmap.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/nis.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_lzma.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_xxsubinterpreters.cpython-39-x86_64-linux-gnu.so"
+      ]
+   },
+   {
+      "user_issue_id": "1716807165427748864",
+      "comp_id": "docker://spring-petclinic:5",
+      "component_package_type": "docker",
+      "comp_name": "spring-petclinic",
+      "comp_version": "5",
+      "type": "security",
+      "targets": null,
+      "issue_id": "XRAY-175202",
+      "paths": [
+         "default/docker-local/spring-petclinic/5/manifest.json"
+      ],
+      "watcher_id": "4ff1c743f3252308395c95db",
+      "watcher_name": "Security_watch_1",
+      "matched_policies": [
+         {
+            "policy": "Security_policy_1",
+            "rule": "Critical_CVEs",
+            "is_blocking": false,
+            "blocking_mask": 0
+         }
+      ],
+      "summary": "Improper input validation of octal strings in Python stdlib ipaddress 3.10 and below allows unauthenticated remote attackers to perform indeterminate SSRF, RFI, and LFI attacks on many programs that rely on Python stdlib ipaddress. IP address octects are left stripped instead of evaluated as valid IP addresses.",
+      "severity": "Critical",
+      "updated": "2023-10-24T13:21:39Z",
+      "permissions": {},
+      "is_source_root": false,
+      "is_high_profile": true,
+      "high_profile_info": {
+         "Id": 0,
+         "PublicVulnsTblID": 0,
+         "VulnId": "XRAY-175202",
+         "VulnerabilityTitle": "",
+         "ShortDescription": "Incorrect IP parsing in Python ipaddress module can lead to IP address confusion.",
+         "FullDescription": "In Python's built-in `ipaddress` module, when parsing IPv4 strings, leading zeros are incorrectly ignored and are not assumed to specify octal (base 8) octets. IP addresses are left stripped instead of evaluated as valid octal IP addresses. This behavior is problematic since many other tools (such as Bash) can properly handle octal IP addresses.\n\nAn attacker can exploit this vulnerability if Python is used with the  `ipaddress.ip_address` or `ipaddress.ip_network` functions for parsing an IP address received as a string from user input.\n\nThe impact from this vulnerability is an IP address confusion between two different components:\n\n1. Python’s `ipaddress` module which will misinterpret an octal IP address \n2. Some other IP address parser that correctly handles octal IP addresses, such as Bash. \n\nFor example, in the following PoC the 1st `ping` invocation will access ip address \"8.8.8.8\" but the 2nd invocation will (incorrectly) access \"10.8.8.8\":\n\n```\nSUSPECT = '010.8.8.8'\nBAD_IP = ipaddress.ip_address(SUSPECT)\nsubprocess.check_output(\"ping -W3 -v -c1 \"+str(SUSPECT), shell=True, universal_newlines=True)\nsubprocess.check_output(\"ping -W3 -v -c1 \"+str(BAD_IP), shell=True, universal_newlines=True)\n```",
+         "Impact": 5,
+         "VulnerabilityType": "Unspecified",
+         "Resolution": "",
+         "ExtendedImpactReasons": [
+            {
+               "Id": 0,
+               "PublicVulnsExtendedTblId": 0,
+               "Name": "The issue can be exploited by attackers over the network",
+               "Description": "",
+               "IsPositive": 0,
+               "InsertOrder": 2
+            },
+            {
+               "Id": 0,
+               "PublicVulnsExtendedTblId": 0,
+               "Name": "The prerequisites for exploiting the issue are extremely unlikely",
+               "Description": "",
+               "IsPositive": 1,
+               "InsertOrder": 1
+            },
+            {
+               "Id": 0,
+               "PublicVulnsExtendedTblId": 0,
+               "Name": "The impact of exploiting the issue depends on the context of surrounding software. A severe impact such as RCE is not guaranteed.",
+               "Description": "",
+               "IsPositive": 1,
+               "InsertOrder": 3
+            }
+         ],
+         "ExtendedReferences": [
+            {
+               "Id": 0,
+               "PublicVulnsExtendedTblId": 0,
+               "RefType": "Exploit",
+               "Title": "https://github.com/sickcodes/security/blob/master/advisories/SICK-2021-014.md",
+               "Url": "https://github.com/sickcodes/security/blob/master/advisories/SICK-2021-014.md",
+               "InsertOrder": 1
+            },
+            {
+               "Id": 0,
+               "PublicVulnsExtendedTblId": 0,
+               "RefType": "Exploit",
+               "Title": "https://sick.codes/sick-2021-014",
+               "Url": "https://sick.codes/sick-2021-014",
+               "InsertOrder": 2
+            },
+            {
+               "Id": 0,
+               "PublicVulnsExtendedTblId": 0,
+               "RefType": "Advisory",
+               "Title": "NVD advisory",
+               "Url": "https://nvd.nist.gov/vuln/detail/CVE-2021-29921",
+               "InsertOrder": 3
+            },
+            {
+               "Id": 0,
+               "PublicVulnsExtendedTblId": 0,
+               "RefType": "Advisory",
+               "Title": "Original disclosure",
+               "Url": "https://github.com/sickcodes/security/blob/master/advisories/SICK-2021-014.md",
+               "InsertOrder": 4
+            }
+         ],
+         "ExtendedRelatedVulns": null
+      },
+      "is_exposures_issue": false,
+      "source": "python:python",
+      "source_version": "3.8.12",
+      "source_id": "cpp://python:python",
+      "component_physical_paths": [
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_xxtestfuzz.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/nis.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/ossaudiodev.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_codecs_iso2022.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_decimal.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_lsprof.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_multiprocessing.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_codecs_tw.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_uuid.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/resource.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_testimportmultiple.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/xxlimited.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_codecs_hk.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_crypt.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_ctypes_test.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_testbuffer.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/parser.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/readline.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_ctypes.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_testinternalcapi.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_xxsubinterpreters.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/audioop.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_zoneinfo.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_codecs_jp.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_multibytecodec.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_queue.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_sqlite3.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_curses_panel.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_hashlib.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_json.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_posixshmem.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_asyncio.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_codecs_cn.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_codecs_kr.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_curses.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_testcapi.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/termios.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/mmap.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_contextvars.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_dbm.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_lzma.cpython-39-x86_64-linux-gnu.so",
+         "sha256__e2b2580f05b4435d9a27f64039d35c672c3cf5d9bbd6672db132d86786414075.tar.gz/usr/lib/python3.9/lib-dynload/_testmultiphase.cpython-39-x86_64-linux-gnu.so"
+      ]
+   }
+]
